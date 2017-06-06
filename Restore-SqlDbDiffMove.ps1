@@ -1,8 +1,9 @@
 [string]$RestoreServer='your_RestoreServer'
 [string]$DatabaseName='your_databasename'
 [string]$BackupFileFull='your_filepathandname'
-[string]$BackupFileDiff=''
 
+#Optional:
+[string]$BackupFileDiff=''
 [string]$DataFileDirectory=''
 [string]$LogFileDirectory=''
 
@@ -26,19 +27,22 @@
     This is the directory and file name of the full backup to be restored.
 
     .PARAMETER BackupFileDiff
-    This is the directory and file name of the (optional) differential backup to be restored. If provided the full backup will be restored WITH NORECOVERY and the differential will be restored to it WITH RECOVERY to complete the restore.
+    Optional. This is the directory and file name of the differential backup to be restored. If provided the full backup will be restored WITH NORECOVERY and the differential will be restored to it WITH RECOVERY to complete the restore.
 
     .PARAMETER DataFileDirectory
-    Specify this to control the directory for the restored databases data files (if different than the server default).
+    Optional. Specify this to control the directory for the restored databases data files (if different than the server default). If not provided server default is used.
 
     .PARAMETER LogFileDirectory
-    Specify this to control the directory for the restored databases log files (if different than the server default).
+    Optional. Specify this to control the directory for the restored databases log files (if different than the server default). If not provided server default is used.
 
     #>
     [cmdletbinding()]
         param(
+          [Parameter(Mandatory=$true)]
           [string]$RestoreServer,
+          [Parameter(Mandatory=$true)]
           [string]$DatabaseName,
+          [Parameter(Mandatory=$true)]
           [string]$BackupFileFull,
           [string]$BackupFileDiff,
           [string]$DataFileDirectory,
