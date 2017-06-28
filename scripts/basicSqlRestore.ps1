@@ -9,8 +9,13 @@
 [string]$LogFileDirectory=''
 
 
+
 $ErrorActionPreference = "Stop";
-. "$((get-item $PSScriptRoot).Parent.FullName)\functions\Restore-SqlDbDiffMove.ps1"
+#. "$((get-item $PSScriptRoot).Parent.FullName)\functions\Restore-SqlDbDiffMove.ps1"
+."..\functions\Restore-SqlDbDiffMove.ps1"
+Push-Location
+Import-Module SQLPS | out-null
+Pop-Location
 
 $parms = @{
     'RestoreServer'=$RestoreServer;
