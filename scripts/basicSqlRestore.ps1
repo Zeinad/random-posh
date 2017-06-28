@@ -1,7 +1,7 @@
 #Mandatory:
-[string]$RestoreServer='AVIONTEDEV02'
-[string]$DatabaseName='test'
-[string]$BackupFileFull='C:\TEMP\TX3560_DC_20170515.bak'
+[string]$RestoreServer='your_RestoreServer'
+[string]$DatabaseName='your_databasename'
+[string]$BackupFileFull='your_filepathandname'
 
 #Optional:
 [string]$BackupFileDiff=''
